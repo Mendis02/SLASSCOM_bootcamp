@@ -13,24 +13,37 @@ class Solution {
         int lengthofs = s.length();
         int total = 0;
         int i = 0;
+        if(lengthofs>1) {
+            char last = s.charAt(lengthofs - 2);
 
-        while(i<lengthofs){
+            while (i < lengthofs - 1) {
 //s = XIV
-            if(romantoint.get(s.charAt(i)) >= romantoint.get(s.charAt(i+1))){
-                total=total+ romantoint.get(s.charAt(i));
-                i=i+1;
-            }else{
-                total = total + romantoint.get(s.charAt(i+1))-romantoint.get(s.charAt(i));
-                i=i+2;
+
+                if (romantoint.get(s.charAt(i)) < romantoint.get(s.charAt(i + 1))) {
+
+                    total = total + romantoint.get(s.charAt(i + 1)) - romantoint.get(s.charAt(i));
+                    i = i + 2;
+
+                } else {
+                    total = total + romantoint.get(s.charAt(i));
+                    i = i + 1;
+                }
+            }
+            // total = total + romantoint.get(s.charAt(lengthofs -1));
+
+            if (romantoint.get(s.charAt(lengthofs - 1)) <= romantoint.get(s.charAt(lengthofs - 2))) {
+                total = total + romantoint.get(s.charAt(lengthofs - 1));
             }
         }
-
+        else{
+            total=romantoint.get(s.charAt(0));
+        }
         return total;
     }
 
     public static void main(String[] args) {
         Solution obj = new Solution();
-        int tm = obj.romanToInt("MCMXCIV");
+        int tm = obj.romanToInt("D");
         System.out.println(tm);
     }
 }
