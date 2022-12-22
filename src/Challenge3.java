@@ -51,10 +51,15 @@ public class Challenge3 {
                     checkMode.put(array[i], 1);
                 }
             }
+
             int mode = 0;
-            for(Map.Entry<Integer,Integer> entry : checkMode.entrySet()){
-                if(entry.getValue() > mode){
-                    mode = entry.getValue();
+            int maxValue = 0;
+            for(int i : checkMode.keySet())
+            {
+                if(checkMode.get(i) > maxValue)
+                {
+                    mode = i;
+                    maxValue = checkMode.get(i);
                 }
             }
             System.out.println("mode: " + mode);
