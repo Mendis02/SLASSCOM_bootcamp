@@ -23,7 +23,7 @@ public class Challenge2_0 {
 
     public static void main(String[] args) {
         Challenge2_0 obj = new Challenge2_0();
-        boolean tm = obj.isValid("");
+        boolean tm = obj.isValid("()");
         System.out.println(tm);
     }
 }
